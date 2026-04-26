@@ -63,6 +63,9 @@ app.delete("/deleteUser/:id", (req, res) => {
 
   users.splice(index, 1);
 
+//index → where to start
+//* 1 → remove 1 item
+
   res.json({
     message: "User deleted",
     data: users
