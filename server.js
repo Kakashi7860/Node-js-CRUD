@@ -51,6 +51,24 @@ app.put("/updateUser/:id",(req,res)=>{
 })
 
 
+// DELETE (remove user)
+app.delete("/deleteUser/:id", (req, res) => {
+  let id = parseInt(req.params.id);
+
+  let index = users.findIndex(u => u.id === id);
+
+  if (index === -1) {
+    return res.status(404).send("User not found");
+  }
+
+  users.splice(index, 1);
+
+  res.json({
+    message: "User deleted",
+    data: users
+  });
+});
+
 
 
 
